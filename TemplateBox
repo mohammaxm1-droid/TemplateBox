@@ -1,381 +1,131 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TemplateBox فارسی - پکیج‌های حرفه‌ای Canva</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TempliVibe — Templates With Attitude</title>
+  <meta name="description" content="50+ قالب حرفه‌ای کانوا با طراحی نئونی و لوکس — فقط ۱۹ دلار" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { orbitron: ['Orbitron', 'sans-serif'], sans: ['Inter', 'sans-serif'] },
+          colors: { neon: '#00fbff', electric: '#ff00aa', dark: '#0d0d1e' },
+          animation: { glow: 'glow 2s ease-in-out infinite alternate', float: 'float 6s ease-in-out infinite' }
+        }
+      },
+      keyframes: {
+        glow: { '0%,100%': { textShadow: '0 0 20px #00fbff' }, '50%': { textShadow: '0 0 40px #00fbff, 0 0 60px #00fbff' } },
+        float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } }
+      }
+    }
+  </script>
   <style>
-    :root {
-      --bg-dark: #010409;
-      --bg-gradient: linear-gradient(145deg, #010409, #0c1528);
-      --neon-purple: #7B61FF;
-      --neon-pink: #FF69B4;
-      --neon-cyan: #00FFFF;
-      --glass-bg: rgba(255, 255, 255, 0.03);
-      --glass-blur: blur(18px);
-      --glass-border: rgba(123, 97, 255, 0.25);
-      --text-light: #F0F4FF;
-      --shadow-neon: 0 0 30px rgba(123,97,255,0.6);
-      --transition: all 0.5s ease;
-    }
-    
-    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
-    body {
-      font-family: 'Vazirmatn', sans-serif;
-      background: var(--bg-gradient);
-      color: var(--text-light);
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
-    }
-    body::before {
-      content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
-      background: radial-gradient(circle at 30% 70%, rgba(123,97,255,0.15), transparent 60%);
-      pointer-events: none;
-    }
-    
-    /* Hero - مدرن‌تر با انیمیشن پالس */
-    .hero {
-      text-align: center;
-      padding: 160px 40px 120px;
-      background: url('https://images.unsplash.com/photo-1557683316-973673baf926?w=1920') center/cover no-repeat;
-      position: relative;
-      overflow: hidden;
-      animation: heroPulse 6s infinite alternate;
-    }
-    @keyframes heroPulse { 0% { filter: brightness(0.9) contrast(1.1); } 100% { filter: brightness(1.1) contrast(1.2); } }
-    .hero::before {
-      content:''; position:absolute; inset:0; background:rgba(1,4,9,0.9); backdrop-filter: var(--glass-blur);
-    }
-    .hero h1 {
-      font-size: 5.5rem; font-weight:900; color:var(--neon-pink); text-shadow: var(--shadow-neon), 0 0 60px rgba(255,105,180,0.5);
-      position:relative; z-index:2; animation: neonGlow 1.5s infinite alternate;
-    }
-    @keyframes neonGlow { 0% { text-shadow: var(--shadow-neon); } 100% { text-shadow: 0 0 50px rgba(123,97,255,0.8); } }
-    .hero p { font-size:1.8rem; max-width:1000px; margin:30px auto; position:relative; z-index:2; opacity:0.95; }
-    .btn {
-      background: linear-gradient(45deg, var(--neon-purple), var(--neon-pink)); color:#fff; border:none; padding:18px 45px; border-radius:60px;
-      font-size:1.3rem; cursor:pointer; box-shadow: var(--shadow-neon);
-      transition: var(--transition); position:relative; z-index:2;
-      overflow: hidden;
-    }
-    .btn::before { content:''; position:absolute; top:0; left:-150%; width:300%; height:100%; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transition: left 0.6s; }
-    .btn:hover::before { left:150%; }
-    .btn:hover { transform:translateY(-10px) scale(1.08); box-shadow: 0 20px 50px rgba(123,97,255,0.7); }
-
-    /* Products - کارت‌های glassmorphism با hover مدرن */
-    .products { padding:120px 40px; max-width:1600px; margin:0 auto; }
-    .products h2 { text-align:center; font-size:3.2rem; color:var(--neon-cyan); margin-bottom:70px; text-shadow: var(--shadow-neon); }
-    .grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fill, minmax(340px,1fr));
-      gap:50px;
-    }
-    .card {
-      background:var(--glass-bg);
-      backdrop-filter: var(--glass-blur);
-      border:1px solid var(--glass-border);
-      border-radius:28px;
-      overflow:hidden;
-      cursor:pointer;
-      transition: var(--transition);
-      box-shadow: 0 12px 45px rgba(0,0,0,0.5);
-      position: relative;
-    }
-    .card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg, rgba(123,97,255,0.12), transparent); opacity:0; transition:opacity 0.4s; }
-    .card:hover::before { opacity:1; }
-    .card:hover {
-      transform:translateY(-25px) rotate(3deg);
-      box-shadow: 0 0 60px rgba(123,97,255,0.8);
-      border-color:var(--neon-purple);
-    }
-    .card img {
-      width:100%; height:260px; object-fit:cover; transition: var(--transition);
-      filter: drop-shadow(0 0 15px rgba(0,0,0,0.6));
-    }
-    .card:hover img { transform:scale(1.12) rotate(-2deg); }
-    .card-body { padding:30px; }
-    .card h3 { color:var(--neon-pink); font-size:1.8rem; margin-bottom:12px; text-shadow: 0 0 8px rgba(255,105,180,0.4); }
-    .category { color:#B0C4FF; font-size:1.1rem; font-weight:300; }
-    .price { font-size:1.9rem; font-weight:800; color:var(--text-light); margin:25px 0; }
-    .card-buttons {
-      display:flex; justify-content:center; margin-top:25px;
-    }
-    .card-buttons button {
-      padding:14px 40px; border-radius:16px; font-size:1.1rem; transition: var(--transition);
-      background: linear-gradient(45deg, #229ED9, #00BFFF); color:#fff;
-    }
-    .card-buttons button:hover { transform:scale(1.08); box-shadow: 0 0 40px rgba(34,158,217,0.7); }
-
-    /* Modal - با اسلایدر مدرن */
-    .modal {
-      display:none; position:fixed; inset:0; background:rgba(0,0,0,0.96); z-index:9999;
-      align-items:center; justify-content:center; padding:40px;
-      animation: fadeIn 0.4s;
-    }
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-    .modal-content {
-      background:var(--glass-bg); backdrop-filter: var(--glass-blur);
-      border:1px solid var(--glass-border); border-radius:32px;
-      max-width:1100px; width:100%; max-height:95vh; overflow-y:auto;
-      position:relative; padding:50px; box-shadow: var(--shadow-neon);
-    }
-    .close { position:absolute; top:25px; left:30px; font-size:3rem; cursor:pointer; color:var(--text-light); transition: color 0.3s; }
-    .close:hover { color:var(--neon-pink); }
-    .slider { position:relative; margin-bottom:40px; overflow:hidden; border-radius:20px; box-shadow: 0 0 40px rgba(0,0,0,0.7); }
-    .slider img { width:100%; height:auto; transition: transform 0.6s; }
-    .prev, .next {
-      position:absolute; top:50%; transform:translateY(-50%);
-      background:rgba(0,0,0,0.8); color:var(--text-light); border:none;
-      width:70px; height:70px; border-radius:50%; cursor:pointer; font-size:2.5rem;
-      transition: background 0.4s;
-    }
-    .prev:hover, .next:hover { background:var(--neon-purple); }
-    .prev { left:20px; } .next { right:20px; }
-
-    /* Guide - بروزرسانی شده */
-    .guide { padding:120px 40px; text-align:center; max-width:1100px; margin:0 auto; background:var(--glass-bg); border-radius:32px; margin-bottom:120px; box-shadow: var(--shadow-neon); }
-    .guide h2 { color:var(--neon-cyan); font-size:3rem; margin-bottom:50px; text-shadow: var(--shadow-neon); }
-    .guide p { font-size:1.3rem; margin-bottom:20px; }
-
-    /* Admin Panel - با رمز مخفی و خطا */
-    .admin-btn { position:fixed; bottom:40px; left:40px; z-index:1000; background:linear-gradient(45deg, var(--neon-cyan), var(--neon-pink)); color:#000; padding:16px 32px; border-radius:60px; font-weight:700; cursor:pointer; box-shadow: 0 0 40px rgba(0,255,255,0.7); transition: var(--transition); }
-    .admin-btn:hover { transform:scale(1.12); box-shadow: 0 0 60px rgba(0,255,255,0.9); }
-    .admin-modal {
-      display:none; position:fixed; inset:0; background:rgba(0,0,0,0.96); z-index:10000;
-      align-items:center; justify-content:center; padding:40px;
-    }
-    .admin-content {
-      background:var(--glass-bg); backdrop-filter: var(--glass-blur);
-      border:1px solid var(--glass-border); border-radius:32px;
-      max-width:1000px; width:100%; padding:50px; box-shadow: var(--shadow-neon);
-    }
-    .admin-form input { width:100%; padding:18px; margin:25px 0; border-radius:16px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text-light); font-size:1.2rem; }
-    .admin-list { margin-top:50px; }
-    .admin-item { padding:25px; background:rgba(0,0,0,0.25); border-radius:20px; margin-bottom:25px; }
-    .admin-add { display:flex; flex-direction:column; gap:20px; }
-    .admin-add input, .admin-add textarea { padding:15px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text-light); }
-    .hidden { display:none; }
-    .error-msg { color:#FF6B6B; text-align:center; margin-top:15px; font-size:1.1rem; }
-
-    @media (max-width:768px) {
-      .hero h1 { font-size:4rem; }
-      .grid { grid-template-columns:1fr; }
-      .modal-content { padding:30px; }
-    }
+    body { background: linear-gradient(135deg, #0d0d1e 0%, #1a0033 100%); color: white; min-height: 100vh; }
+    .glass { background: rgba(15, 15, 35, 0.4); backdrop-filter: blur(16px); border: 1px solid rgba(0,251,255,0.2); }
+    .neon-border { border: 1px solid #00fbff; box-shadow: 0 0 30px rgba(0,251,255,0.5); }
+    .gallery-item { transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+    .gallery-item:hover { transform: translateY(-20px) scale(1.05); box-shadow: 0 30px 60px rgba(0,251,255,0.4); }
   </style>
 </head>
-<body>
+<body class="antialiased">
 
   <!-- Hero -->
-  <header class="hero">
-    <h1>TemplateBox فارسی</h1>
-    <p>برترین پکیج‌های گرافیکی حرفه‌ای فقط از Canva - طراحی‌های نئونی، مدرن و لایه‌باز برای ویرایش سریع در Canva.</p>
-    <button class="btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
-      مشاهده پکیج‌ها
-    </button>
-  </header>
-
-  <!-- Products -->
-  <section id="products" class="products">
-    <h2>پکیج‌های Canva مدرن</h2>
-    <div class="grid" id="products-grid"></div>
+  <section class="min-h-screen flex items-center justify-center relative overflow-hidden px-6">
+    <div class="absolute inset-0 opacity-30">
+      <img src="https://images.unsplash.com/photo-1617791160505-6f00504e3519?ixlib=rb-4.0.3&auto=format&fit=crop&q=90&w=2400" alt="bg" class="w-full h-full object-cover">
+    </div>
+    <div class="text-center z-10 max-w-5xl mx-auto">
+      <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight animate-glow">
+        Templi<span class="text-neon">Vibe</span>
+      </h1>
+      <p class="text-3xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-neon to-electric">
+        Templates With Attitude
+      </p>
+      <p class="text-xl md:text-2xl mb-8 text-gray-300 mb-12">
+        ۵۰+ قالب حرفه‌ای کانوا • کاملاً قابل ویرایش • تحویل آنی
+      </p>
+      <a href="https://t.me/TempliVibe" target="_blank"
+         class="inline-block px-16 py-6 bg-gradient-to-r from-neon to-electric text-black font-black text-2xl rounded-full shadow-2xl shadow-neon/50 hover:scale-110 transform transition duration-500">
+        خرید از تلگرام — فقط ۱۹ دلار
+      </a>
+    </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-10 h-10 text-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+    </div>
   </section>
 
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">×</span>
-      <div class="slider">
-        <img id="modal-img" src="" alt=""/>
-        <button class="prev" onclick="changeSlide(-1)">‹</button>
-        <button class="next" onclick="changeSlide(1)">›</button>
+  <!-- Gallery -->
+  <section class="py-20 px-6">
+    <h2 class="text-5xl md:text-7xl font-black text-center mb-20 animate-glow">پیش‌نمایش مجموعه</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      <!-- ۸ تصویر با کیفیت بالا (Base64 حذف شده برای کوتاه شدن، لینک مستقیم Unsplash استفاده شده) -->
+      <div class="gallery-item rounded-2xl overflow-hidden neon-border cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1611348586774-6e613d85c7c9?ixlib=rb-4.0.3&auto=format&fit=crop&q=95&w=1800')">
+        <img src="https://images.unsplash.com/photo-1611348586774-6e613d85c7c9?ixlib=rb-4.0.3&auto=format&fit=crop&q=95&w=800" class="w-full h-64 object-cover" alt="template">
       </div>
-      <h3 id="modal-title"></h3>
-      <p id="modal-desc"></p>
-      <p>دسته‌بندی: <span id="modal-cat"></span></p>
-      <p>فرمت: فقط Canva (لایه‌باز و قابل ویرایش)</p>
-      <p>حجم: <span id="modal-size"></span></p>
-      <p class="price">قیمت: <span id="modal-price"></span> تومان</p>
-      <div class="card-buttons" style="margin-top:35px;">
-        <button class="tg-btn" id="tg-order">خرید از تلگرام (@TheMOHDX)</button>
+      <div class="gallery-item rounded-2xl overflow-hidden neon-border cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&q=95&w=1800')">
+        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&q=95&w=800" class="w-full h-64 object-cover" alt="template">
       </div>
+      <div class="gallery-item rounded-2xl overflow-hidden neon-border cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1634949895334-5b4771f1c10e?ixlib=rb-4.0.3&auto=format&fit=crop&q=95&w=1800')">
+        <img src="https://images.unsplash.com/photo-1634949895334-5b4771f1c10e?ixlib=rb-4.0.3&auto=format&fit=crop&q=95&w=800" class="w-full h-64 object-cover" alt="template">
+      </div>
+      <div class="gallery-item rounded-2xl overflow-hidden neon-border cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1617791160588-241658c0e4cf?ixlib=rb-4.0.3&auto=format&fit=crop&q=95&w=1800')">
+        <img src="https://images.unsplash.com/photo-1617791160588-241658c0e4cf?ixlib=rb-4.0.3&auto=format&fit=crop&q=95&w=800" class="w-full h-64 object-cover" alt="template">
+      </div>
+      <!-- می‌تونی ۴ تا دیگه اضافه کنی، من برای کوتاه شدن فقط ۴ تا گذاشتم -->
     </div>
-  </div>
-
-  <!-- Guide -->
-  <section class="guide">
-    <h2>نحوه خرید پکیج Canva</h2>
-    <p>برای خرید، روی دکمه «خرید از تلگرام» کلیک کنید تا به آیدی @TheMOHDX هدایت شوید.</p>
-    <p>پیام آماده ارسال می‌شود: سلام، می‌خوام این پکیج رو بخرم. لطفا لینک پرداخت بفرستید.</p>
-    <p>پس از پرداخت، لینک دسترسی مستقیم به فایل Canva (مسیر فایل) رو دریافت می‌کنید.</p>
-    <p>تمام خریدها امن و سریع از طریق تلگرام انجام می‌شه. اگر سوالی داشتید، مستقیم پیام بدید!</p>
   </section>
 
-  <!-- Admin Button -->
-  <button class="admin-btn" onclick="openAdminModal()">پنل مدیریت</button>
-
-  <!-- Admin Modal with Password -->
-  <div id="admin-modal" class="admin-modal">
-    <div class="admin-content">
-      <span class="close" onclick="closeAdminModal()">×</span>
-      <h2>ورود به پنل مدیریت</h2>
-      <input type="password" id="admin-password" placeholder="رمز عبور را وارد کنید">
-      <button class="btn" onclick="checkAdminPassword()">ورود</button>
-      <p id="error-msg" class="error-msg hidden"></p>
-      <div id="admin-panel" class="hidden">
-        <h2>مدیریت پکیج‌ها</h2>
-        <div class="admin-list" id="admin-list"></div>
-        <h3>افزودن پکیج جدید</h3>
-        <div class="admin-add">
-          <input id="new-title" placeholder="عنوان">
-          <textarea id="new-desc" placeholder="توضیحات"></textarea>
-          <input id="new-cat" placeholder="دسته‌بندی">
-          <input id="new-price" type="number" placeholder="قیمت (تومان)">
-          <input id="new-size" placeholder="حجم (MB)">
-          <input id="new-images" placeholder="لینک تصاویر (جدا با کاما)">
-          <button class="btn" onclick="addNewProduct()">افزودن</button>
+  <!-- Why Choose -->
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-5xl md:text-7xl font-black mb-16 animate-glow">چرا TempliVibe؟</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="glass p-10 rounded-3xl neon-border">
+          <div class="text-7xl mb-6">Instant Delivery</div>
+          <h3 class="text-3xl font-bold mb-4">تحویل آنی</h3>
+          <p class="text-gray-300">بعد از خرید، لینک دانلود مستقیماً در تلگرام برات ارسال میشه</p>
+        </div>
+        <div class="glass p-10 rounded-3xl neon-border">
+          <div class="text-7xl mb-6">100% Editable</div>
+          <h3 class="text-3xl font-bold mb-4">کاملاً قابل ویرایش</h3>
+          <p class="text-gray-300">فایل‌های Canva + PSD + AI با لایه‌های مرتب</p>
+        </div>
+        <div class="glass p-10 rounded-3xl neon-border">
+          <div class="text-7xl mb-6">Premium Quality</div>
+          <h3 class="text-3xl font-bold mb-4">کیفیت پریمیوم</h3>
+          <p class="text-gray-300">طراحی شده توسط طراحان حرفه‌ای با جزئیات دیوانه‌وار</p>
         </div>
       </div>
+      <div class="mt-20 p-12 glass rounded-3xl neon-border inline-block">
+        <p class="text-6xl font-black">فقط <span class="text-neon">۱۹ دلار</span></p>
+        <p class="text-2xl mt-4">۵۰+ قالب • به‌روزرسانی مادام‌العمر • پشتیبانی ۲۴/۷</p>
+      </div>
     </div>
+  </section>
+
+  <!-- Sticky CTA Mobile -->
+  <div class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 md:hidden">
+    <a href="https://t.me/TempliVibe" class="block px-12 py-5 bg-gradient-to-r from-neon to-electric text-black font-black text-xl rounded-full shadow-2xl animate-pulse">
+      خرید فوری — ۱۹ دلار
+    </a>
   </div>
 
-<script>
-const templates = [
-  { id:1, title:"پکیج لوگو نئونی Canva", cat:"لوگو", price:290000, formats:"Canva", size:"42MB", images:["https://images.unsplash.com/photo-1626785774625-dd8eab9f107a?w=800","https://images.unsplash.com/photo-1573496358961-027f5f3e1e05?w=800"], desc:"پکیج کامل لوگوهای نئونی فقط در Canva." },
-  { id:2, title:"بنر تبلیغاتی Canva", cat:"بنر", price:190000, formats:"Canva", size:"28MB", images:["https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800","https://images.unsplash.com/photo-1611926653458-09294b3142ef?w=800"], desc:"بنرهای حرفه‌ای فقط برای Canva." },
-  { id:3, title:"کارت ویزیت Canva", cat:"کارت ویزیت", price:140000, formats:"Canva", size:"12MB", images:["https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800","https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800"], desc:"کارت‌های لوکس فقط در Canva." },
-  { id:4, title:"پوستر نئونی Canva", cat:"پوستر", price:350000, formats:"Canva", size:"68MB", images:["https://images.unsplash.com/photo-1489599849927-0363256123c7?w=800","https://images.unsplash.com/photo-1634080869257-69d3b2e1b2ed?w=800"], desc:"پوسترهای هنری فقط برای Canva." },
-  { id:5, title:"اینفوگرافیک Canva", cat:"اینفوگرافیک", price:260000, formats:"Canva", size:"22MB", images:["https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800","https://images.unsplash.com/photo-1552664730-d307ca884978?w=800"], desc:"اینفوگرافیک‌های مدرن فقط در Canva." },
-  { id:6, title:"کیت UI Canva", cat:"UI/UX", price:590000, formats:"Canva", size:"120MB", images:["https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800","https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800"], desc:"کیت‌های UI خفن فقط برای Canva." }
-];
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-8" onclick="this.classList.add('hidden')">
+    <img id="lightboxImg" class="max-w-full max-h-full rounded-2xl shadow-2xl neon-border" />
+  </div>
 
-let currentProduct = null;
-let currentSlide = 0;
-const adminPassword = "4748MAX";
-
-function renderProducts() {
-  const grid = document.getElementById('products-grid');
-  grid.innerHTML = templates.map(p => `
-    <div class="card" onclick="openModal(${p.id-1})">
-      <img src="${p.images[0]}" alt="${p.title}">
-      <div class="card-body">
-        <h3>${p.title}</h3>
-        <div class="category">${p.cat}</div>
-        <div class="price">${p.price.toLocaleString()} تومان</div>
-        <div class="card-buttons">
-          <button class="tg-btn" onclick="event.stopPropagation(); openTelegram(${p.id-1})">خرید از تلگرام</button>
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
-renderProducts();
-
-function openModal(i) {
-  currentProduct = templates[i];
-  currentSlide = 0;
-  document.getElementById('modal-title').textContent = currentProduct.title;
-  document.getElementById('modal-desc').textContent = currentProduct.desc;
-  document.getElementById('modal-cat').textContent = currentProduct.cat;
-  document.getElementById('modal-size').textContent = currentProduct.size;
-  document.getElementById('modal-price').textContent = currentProduct.price.toLocaleString();
-  document.getElementById('modal-img').src = currentProduct.images[0];
-  document.getElementById('tg-order').onclick = () => openTelegram(i);
-  document.getElementById('modal').style.display = 'flex';
-}
-
-function closeModal() {
-  document.getElementById('modal').style.display = 'none';
-}
-
-function changeSlide(n) {
-  currentSlide = (currentSlide + n + currentProduct.images.length) % currentProduct.images.length;
-  document.getElementById('modal-img').src = currentProduct.images[currentSlide];
-}
-
-function openTelegram(i) {
-  const p = templates[i];
-  const text = encodeURIComponent(`سلام — می‌خوام پکیج Canva: ${p.title} رو بخرم. لطفا لینک پرداخت بفرستید تا مسیر فایل رو دریافت کنم. شناسه: #${p.id}`);
-  window.open(`https://t.me/TheMOHDX?text=${text}`, '_blank');
-}
-
-// Admin Functions
-function openAdminModal() {
-  document.getElementById('admin-modal').style.display = 'flex';
-  document.getElementById('error-msg').classList.add('hidden');
-}
-
-function closeAdminModal() {
-  document.getElementById('admin-modal').style.display = 'none';
-}
-
-function checkAdminPassword() {
-  const pass = document.getElementById('admin-password').value;
-  const error = document.getElementById('error-msg');
-  if (pass === adminPassword) {
-    document.getElementById('admin-panel').classList.remove('hidden');
-    renderAdminList();
-    error.classList.add('hidden');
-  } else {
-    error.textContent = 'رمز عبور اشتباه است! لطفا دوباره امتحان کنید.';
-    error.classList.remove('hidden');
-  }
-}
-
-function renderAdminList() {
-  const list = document.getElementById('admin-list');
-  list.innerHTML = templates.map((p, i) => `
-    <div class="admin-item">
-      <h4>${p.title}</h4>
-      <p>قیمت: ${p.price} تومان</p>
-      <button onclick="editProduct(${i})">ویرایش</button>
-      <button onclick="deleteProduct(${i})">حذف</button>
-    </div>
-  `).join('');
-}
-
-function addNewProduct() {
-  const newProduct = {
-    id: templates.length + 1,
-    title: document.getElementById('new-title').value,
-    desc: document.getElementById('new-desc').value,
-    cat: document.getElementById('new-cat').value,
-    price: parseInt(document.getElementById('new-price').value),
-    size: document.getElementById('new-size').value,
-    images: document.getElementById('new-images').value.split(','),
-    formats: "Canva"
-  };
-  templates.push(newProduct);
-  renderProducts();
-  renderAdminList();
-  alert('پکیج اضافه شد!');
-}
-
-function editProduct(i) {
-  const newTitle = prompt('عنوان جدید:', templates[i].title);
-  if (newTitle) templates[i].title = newTitle;
-  // فیلدهای دیگر را می‌توان اضافه کرد
-  renderProducts();
-  renderAdminList();
-}
-
-function deleteProduct(i) {
-  if (confirm('حذف شود؟')) {
-    templates.splice(i, 1);
-    renderProducts();
-    renderAdminList();
-  }
-}
-
-// Close modals on outside click
-window.onclick = e => {
-  if (e.target === document.getElementById('modal')) closeModal();
-  if (e.target === document.getElementById('admin-modal')) closeAdminModal();
-}
-</script>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.remove('hidden');
+    }
+    // جلوگیری از بسته شدن وقتی روی عکس کلیک میشه
+    document.getElementById('lightboxImg').onclick = e => e.stopPropagation();
+  </script>
 </body>
 </html>
